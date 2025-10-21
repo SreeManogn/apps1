@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function validateForm(){
+            var username=document.forms["f1"]["username"].value.trim();
+            var password=document.forms["f1"]["pwd"].value.trim();
+            if(username===""){
+                alert("password can't be empty");
+                return false;
+            }
+            if(password===""){
+                alert("password can't be empty");
+                return false;
+            }
+            if(password.length<6){
+                alert("password can't be smaller than 6 chars");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="f1" action="/Submit" method="POST" onsubmit="return validateForm()">
+        Enter your name:<input type="text" name="username"><br>
+        Enter your password:<input type="text" name="password"><br>
+        <input type="submit" name="sb" value="Submit">
+    </form>
+</body>
+</html>
