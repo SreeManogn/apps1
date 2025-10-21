@@ -2,6 +2,15 @@ pipeline {
     agent any
    
     stages {
+        stage('Setup Python') {
+    steps {
+        bat '''
+        curl -o python-installer.exe https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe
+        start /wait python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
+        '''
+    }
+}
+
 
         stage('Run Selenium Tests with pytest') {
             steps {
@@ -49,6 +58,7 @@ pipeline {
                     bat 'kubectl apply -f service.yaml' 
             } 
         }
+        
     }
     post {
         success {
