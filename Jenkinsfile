@@ -10,7 +10,7 @@ pipeline {
                     echo "Running Selenium Tests using pytest"
 
                     // Install Python dependencies
-                    bat 'python -m pip install -r requirements.txt'
+                    bat 'Python -m pip install -r requirements.txt'
 
                     //  Start Flask app in background
                     bat 'start /B python app.py'
@@ -20,7 +20,7 @@ pipeline {
 
                     // Run tests using pytest
                     
-                    bat 'python -m pytest -v'
+                    bat 'Python -m pytest -v'
             }
         }
 
